@@ -1,0 +1,57 @@
+//4. Escreva um algoritmo que leia dois valores: o primeiro servindo de indicador de 
+operação e o segundo correspondendo ao raio de um círculo ou esfera. Caso o 
+primeiro valor lido seja:
+a. 1: calcular e imprimir o perímetro do círculo.
+b. 2: calcular e imprimir a área do círculo.
+c. 3: calcular e imprimir o volume da esfera.
+Se o primeiro valor lido for diferente desses três valores possíveis, imprimir uma 
+mensagem de erro, informando que o código da operação é inválido.
+OBS:
+Perímetro de um círculo: 2 π r
+Área de um círculo: π r²
+Volume de uma esfera: 4/3 π r³
+em que π = 3,141592 e r é o raio da circunferência.
+
+
+import java.util.Scanner;
+
+public class CalculadoraCirculoEsfera {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ler o indicador de operação e o raio
+        System.out.print("Digite o indicador de operação (1 para perímetro do círculo, 2 para área do círculo, 3 para volume da esfera): ");
+        int operacao = scanner.nextInt();
+        
+        System.out.print("Digite o raio: ");
+        double raio = scanner.nextDouble();
+        
+        // Constante pi
+        final double PI = 3.141592;
+        
+        // Realizar a operação apropriada
+        switch (operacao) {
+            case 1:
+                // Calcular e imprimir o perímetro do círculo
+                double perimetroCirculo = 2 * PI * raio;
+                System.out.println("Perímetro do círculo: " + perimetroCirculo);
+                break;
+            case 2:
+                // Calcular e imprimir a área do círculo
+                double areaCirculo = PI * raio * raio;
+                System.out.println("Área do círculo: " + areaCirculo);
+                break;
+            case 3:
+                // Calcular e imprimir o volume da esfera
+                double volumeEsfera = (4.0 / 3.0) * PI * Math.pow(raio, 3);
+                System.out.println("Volume da esfera: " + volumeEsfera);
+                break;
+            default:
+                // Mensagem de erro para código de operação inválido
+                System.out.println("Código de operação inválido.");
+                break;
+        }
+        
+        scanner.close();
+    }
+}
